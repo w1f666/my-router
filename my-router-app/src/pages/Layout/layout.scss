@@ -16,6 +16,8 @@ $border-color: #eeeeee;
   // 中间的内容区域
   .app-body {
     flex: 1; // 自动占据剩余空间，把 footer 挤到底部
+    display: flex;
+    flex-direction: column;
     overflow-y: auto; 
     position: relative;
     -webkit-overflow-scrolling: touch; 
