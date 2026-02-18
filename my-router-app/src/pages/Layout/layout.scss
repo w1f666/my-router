@@ -1,0 +1,36 @@
+$tabbar-height: 50px; 
+$bg-color: #f5f5f5;
+$border-color: #eeeeee;
+
+.app-layout {
+  // 1. 关键：占满视口高度
+  height: 100vh;
+  // 推荐使用 dvh 适配移动端动态地址栏
+  height: 100dvh; 
+  
+  display: flex;
+  flex-direction: column; // 垂直排列
+  background-color: $bg-color;
+  overflow: hidden; 
+
+  // 中间的内容区域
+  .app-body {
+    flex: 1; // 自动占据剩余空间，把 footer 挤到底部
+    overflow-y: auto; 
+    position: relative;
+    -webkit-overflow-scrolling: touch; 
+    padding: 12px; 
+  }
+
+  //底部的 TabBar 区域
+  .app-footer {
+    flex-shrink: 0; // 防止内容过多时 TabBar 被挤压变形
+    background: #fff;
+    border-top: 1px solid $border-color;
+    z-index: 100;
+
+    // 3. 关键：iPhone X+ 底部安全区适配 (如果不使用 Antd 自带的 SafeArea 组件)
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

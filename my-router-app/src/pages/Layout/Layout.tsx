@@ -9,7 +9,7 @@ import {
   CalculatorOutline,
   AddCircleOutline
 } from 'antd-mobile-icons'
-
+import './layout.scss'
 const Layout: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
@@ -43,11 +43,11 @@ const Layout: React.FC = () => {
   ]
 
   return (
-    <div>
-      <div>
+    <div className="app-layout">
+      <div className="app-body">
       <Outlet />
       </div>
-      <div>
+      <div className="app-footer">
       <TabBar activeKey={pathname} onChange={value => setRouteActive(value)}>
         {tabs.map(item => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
